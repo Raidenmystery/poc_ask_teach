@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import styled from "styled-components/native";
 
-export default function App() {
+const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+`;
+
+const Title = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  color: #fc00c4;
+`;
+
+const Button = styled.TouchableOpacity`
+  padding: 10px 20px;
+  background-color: #8f8fbb;
+  border-radius: 4px;
+`;
+
+const ButtonText = styled.Text`
+  font-size: 16px;
+  color: #fff;
+`;
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Container>
+      <Title>Hello, world!</Title>
+      <Button onPress={() => alert("Button pressed")}>
+        <ButtonText>Press me!</ButtonText>
+      </Button>
+    </Container>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
