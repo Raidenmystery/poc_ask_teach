@@ -1,0 +1,23 @@
+name: My Pipeline
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          npm install -g expo-cli
+
+      - name: Start Expo Go
+        run: expo login -u Raidenmystery -p Raidenmystery..98
+
+      - name: Run tests with Jest
+        run: npm run test
+  
