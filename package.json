@@ -10,13 +10,15 @@
     "commit": "cz commit"
   },
   "dependencies": {
+    "@types/react": "~18.0.27",
+    "axios": "^1.4.0",
     "expo": "~48.0.18",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-dotenv": "^3.4.8",
     "react-query": "^3.39.3",
-    "typescript": "^4.9.4",
-    "@types/react": "~18.0.27"
+    "typescript": "^4.9.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
