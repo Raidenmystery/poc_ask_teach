@@ -1,6 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import { styles } from './QRCameraPage.styles';
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
+
+import { styles } from "./QRCameraPage.styles";
 
 export default function QRCameraPage() {
   return (
@@ -8,5 +9,5 @@ export default function QRCameraPage() {
       <Text>QRCamera Page</Text>
       <StatusBar style="auto" />
     </View>
-  )
+  );
 }

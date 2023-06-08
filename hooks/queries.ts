@@ -1,22 +1,22 @@
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 
 function useGetValues() {
   const data = useQuery(
-    'data',
+    "data",
     async () => {
-      const result = {}
+      const result = {};
       /* const {
         data: { result },
       } = await fetchCurrency() */
-      return result
+      return result;
     },
     {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
     },
-  )
+  );
 
-  return data
+  return data;
 }
 
 export { useGetValues };

@@ -1,8 +1,8 @@
-import FormPage from './index';
+import FormPage from "./index";
 
 export default {
-  title: 'FormPage',
+  title: "FormPage",
   component: FormPage,
 };
 
-export const Basic = (args:any) => <FormPage {...args} />;
+export const Basic = (args: any) => <FormPage {...args} />;
