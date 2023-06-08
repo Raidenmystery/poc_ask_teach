@@ -10,5 +10,6 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "typeRoots": ["./types"]
 }
