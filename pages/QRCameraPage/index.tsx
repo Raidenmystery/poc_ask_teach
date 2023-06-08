@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { Button, View } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
-import { styles } from "./QRCameraPage.styles";
-
-import { Button, View } from "react-native";
 import Paragraph from "../../src/atoms/Paragraph/index";
+
+import { styles } from "./QRCameraPage.styles";
 
 export default function QRCameraPage() {
   // --- Hooks ---------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ export default function QRCameraPage() {
     // };
   };
 
-  const handleBarCodeScanned = ({ data }: { type: any; data: string }) => {
+  const handleBarCodeScanned = ({ data }: { data: string }) => {
     setScanned(true);
     setText(data);
   };
@@ -50,23 +50,25 @@ export default function QRCameraPage() {
         <Paragraph>Requesting for camera Permission</Paragraph>
       </View>
     );
-  } else if (hasPermission === false) {
+  }
+
+  if (!Boolean(hasPermission)) {
     return (
       <View style={styles.container}>
         <Paragraph style={styles.margin10}>No access to camera</Paragraph>
         <Button title={"Allow camera"} onPress={() => askForCameraPermission()} />
       </View>
     );
-  } else {
-    return (
-      <View style={styles.container}>
-        <View style={styles.barCodeBox}>
-          <BarCodeScanner onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={styles.scanner} />
-        </View>
-        <Paragraph style={styles.mainText}>{text}</Paragraph>
-
-        {scanned && <Button title={"Scan again?"} onPress={() => setScanned(false)} />}
-      </View>
-    );
   }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.barCodeBox}>
+        <BarCodeScanner onBarCodeScanned={scanned ? undefined : handleBarCodeScanned} style={styles.scanner} />
+      </View>
+      <Paragraph style={styles.mainText}>{text}</Paragraph>
+
+      {scanned && <Button title={"Scan again?"} onPress={() => setScanned(false)} />}
+    </View>
+  );
 }
