@@ -15,9 +15,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="List"
-        screenOptions={{ headerShown: false }}
-      >
+        initialRouteName="Form"
+        screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Form" component={FormPage} />
         <Stack.Screen name="List" component={ListPage} />
         <Stack.Screen name="QRCamera" component={QRCameraPage} />

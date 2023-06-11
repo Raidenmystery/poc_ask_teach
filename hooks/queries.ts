@@ -13,7 +13,7 @@ function useGetValues() {
     {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
-    },
+    }
   );
 
   return data;
