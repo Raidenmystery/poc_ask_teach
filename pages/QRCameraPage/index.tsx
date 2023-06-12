@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, View } from "react-native";
 
 import { styles } from "./QRCameraPage.styles";
 import { BarCodeScanner } from "expo-barcode-scanner";
@@ -30,11 +30,8 @@ export default function QRCameraPage() {
 
   // --- Data and handlers ---------------------------------------------------------------------
   const askForCameraPermission = async () => {
-    // (async () => {
     const { status } = await BarCodeScanner.requestPermissionsAsync();
     setHasPermission(status === "granted");
-    // })
-    // };
   };
 
   const handleBarCodeScanned = ({ data }: { data: string }) => {
