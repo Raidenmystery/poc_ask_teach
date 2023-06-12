@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Modal } from "react-native";
 
 import { styles } from "./ListPage.styles";
 import { usePokemonData } from "../../hooks/queries";
+jest.useFakeTimers();
 
 export default function ListPage(): JSX.Element {
   const [modalVisible, setModalVisible] = useState(false);
