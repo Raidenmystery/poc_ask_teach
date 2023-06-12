@@ -4,8 +4,9 @@ import { Button, View } from "react-native";
 
 import { styles } from "./QRCameraPage.styles";
 import Paragraph from "../../src/atoms/Paragraph/index";
+import { NavigationButtons } from "../../src/templates";
 
-export default function QRCameraPage() {
+export default function QRCameraPage({ navigation }: { navigation: any }) {
   // --- Hooks ---------------------------------------------------------------------------------
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [scanned, setScanned] = useState(false);
@@ -69,10 +70,10 @@ export default function QRCameraPage() {
         />
       </View>
       <Paragraph style={styles.mainText}>{text}</Paragraph>
-
       {scanned && (
         <Button title={"Scan again?"} onPress={() => setScanned(false)} />
       )}
+      <NavigationButtons navigation={navigation} type="QRCamera" />
     </View>
   );
 }

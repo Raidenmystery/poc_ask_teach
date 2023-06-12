@@ -10,8 +10,9 @@ import {
 import { validationSchema } from "./FormPage.constants";
 import { alertPrompt } from "./FormPage.functions";
 import { styles } from "./FormPage.styles";
+import { NavigationButtons } from "../../src/templates";
 
-export default function FormPage() {
+export default function FormPage({ navigation }: { navigation: any }) {
   // --- Hooks -----------------------------------------------------------------
   const { handleChange, handleSubmit, errors } = useFormik({
     initialValues: {
@@ -80,6 +81,9 @@ export default function FormPage() {
         disabled={haveErrors}>
         <Text style={styles.textSubmitButton}>Submit</Text>
       </TouchableHighlight>
+
+      <NavigationButtons navigation={navigation} type="Form" />
+
       <StatusBar style="auto" />
     </SafeAreaView>
   );
