@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
-import { Button, View } from "react-native";
-import { BarCodeScanner } from "expo-barcode-scanner";
-
-import Paragraph from "../../src/atoms/Paragraph/index";
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
 
 import { styles } from "./QRCameraPage.styles";
 

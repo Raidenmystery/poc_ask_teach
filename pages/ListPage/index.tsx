@@ -1,6 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import { styles } from './ListPage.styles';
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
+
+import { styles } from "./ListPage.styles";
 
 export default function ListPage() {
   return (
@@ -8,5 +9,5 @@ export default function ListPage() {
       <Text>List Page</Text>
       <StatusBar style="auto" />
     </View>
-  )
+  );
 }

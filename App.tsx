@@ -1,38 +1,26 @@
-import { StyleSheet } from "react-native";
+import { STORYBOOK_ENABLED } from "@env";
 import { NavigationContainer } from "@react-navigation/native";
-import { QueryClientProvider, QueryClient } from "react-query";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import StorybookUIRoot from "./.storybook/Storybook";
 import FormPage from "./pages/FormPage";
 import ListPage from "./pages/ListPage";
 import QRCameraPage from "./pages/QRCameraPage";
-import AxiosTestPage from "./pages/AxiosTests";
-
-const queryClient = new QueryClient();
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-  return (
-    <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="AxiosTest" screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Form" component={FormPage} />
-          <Stack.Screen name="List" component={ListPage} />
-          <Stack.Screen name="QRCamera" component={QRCameraPage} />
-          <Stack.Screen name="AxiosTest" component={AxiosTestPage} />
-        </Stack.Navigator>
-      </NavigationContainer>
 
-      {/* <ReactQueryDevtools initialIsOpen={false} position="bottom-right" /> */}
-    </QueryClientProvider>
+  if (STORYBOOK_ENABLED === "true") return StorybookUIRoot();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Form"
+        screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Form" component={FormPage} />
+        <Stack.Screen name="List" component={ListPage} />
+        <Stack.Screen name="QRCamera" component={QRCameraPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
