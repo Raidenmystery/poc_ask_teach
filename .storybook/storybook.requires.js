@@ -46,6 +46,8 @@ if (parameters) {
 const getStories = () => {
   return {
     "./pages/FormPage/FormPage.stories.tsx": require("../pages/FormPage/FormPage.stories.tsx"),
+    "./pages/ListPage/ListPage.stories.tsx": require("../pages/ListPage/ListPage.stories.tsx"),
+
   };
 };
 
