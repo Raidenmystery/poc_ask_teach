@@ -1,8 +1,8 @@
+import { BarCodeScanner } from "expo-barcode-scanner";
 import React, { useState, useEffect } from "react";
 import { Button, View } from "react-native";
 
 import { styles } from "./QRCameraPage.styles";
-import { BarCodeScanner } from "expo-barcode-scanner";
 import Paragraph from "../../src/atoms/Paragraph/index";
 
 export default function QRCameraPage() {
@@ -48,7 +48,7 @@ export default function QRCameraPage() {
     );
   }
 
-  if (!Boolean(hasPermission)) {
+  if (!hasPermission) {
     return (
       <View style={styles.container}>
         <Paragraph style={styles.margin10}>No access to camera</Paragraph>

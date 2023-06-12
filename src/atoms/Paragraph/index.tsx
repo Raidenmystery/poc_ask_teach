@@ -1,7 +1,13 @@
 import React from "react";
 import { Text } from "react-native";
 
-const Paragraph = ({ children, style }: { children: React.ReactNode; style?: {} }): JSX.Element => {
+const Paragraph = ({
+  children,
+  style,
+}: {
+  children: React.ReactNode;
+  style?: object;
+}): JSX.Element => {
   // --- Hooks ---------------------------------------------------------------------------------
   // --- END: Hooks ---------------------------------------------------------------------------
 
