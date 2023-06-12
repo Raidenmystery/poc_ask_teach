@@ -1,44 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, Modal } from "react-native";
+
+import { styles } from "./ListPage.styles";
 import { usePokemonData } from "../../hooks/queries";
-//import { styles } from "./ListPage.styles";
 
 export default function ListPage(): JSX.Element {
   const [modalVisible, setModalVisible] = useState(false);
+
   const data = usePokemonData("pikachu");
 
-
-  const togleeModal = () => {
+  const togleeModal = (value: string) => {
     setModalVisible(!modalVisible);
-    console.log("Data", data)
   };
 
-
   const pokemons = [
-    { name: "Pikachu", value: "pikachu" },
-    { name: "Charmander", value: "charmander" },
-    { name: "Bulbasaur", value: "bulbasaur" },
+    { property: "Base experience", value: data?.data?.base_experience },
+    { property: "Base height", value: data?.data?.height },
+    { property: "Order", value: data?.data?.order },
   ];
-
-
-  
 
   return (
     <View style={styles.container}>
-      {pokemons.map(({name, value}) => (
+      {pokemons.map(({ property, value }) => (
         <>
           <TouchableOpacity
-            onPress={togleeModal}
+            onPress={() => togleeModal(value)}
             style={styles.item}
-            key={name}>
-            <Text style={styles.itemText}>{name}</Text>
+            key={property}>
+            <Text style={styles.itemText}>{property}</Text>
           </TouchableOpacity>
         </>
       ))}
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.modal}>
-          <Text style={styles.modalText}>Modal for Element 1</Text>
-          <TouchableOpacity onPress={togleeModal} style={styles.modalButton}>
+          <Text style={styles.modalText}>Base experience: {pokemons[0].value}</Text>
+          <Text style={styles.modalText}>Base height: {pokemons[1].value}</Text>
+          <Text style={styles.modalText}>Order: {pokemons[2].value}</Text>
+          <TouchableOpacity
+            onPress={() => setModalVisible(!modalVisible)}
+            style={styles.modalButton}>
             <Text style={styles.modalButtonText}>Close Modal</Text>
           </TouchableOpacity>
         </View>
@@ -46,39 +46,3 @@ export default function ListPage(): JSX.Element {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  item: {
-    backgroundColor: '#f2f2f2',
-    padding: 20,
-    marginVertical: 10,
-    borderRadius: 10,
-  },
-  itemText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  modal: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalText: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  modalButton: {
-    backgroundColor: '#2196F3',
-    padding: 10,
-    borderRadius: 5,
-  },
-  modalButtonText: {
-    color: '#fff',
-    fontSize: 18,
-  },
-});
