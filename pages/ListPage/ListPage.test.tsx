@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import renderer from "react-test-renderer";
 
 import ListPage from "../ListPage";
+jest.useFakeTimers();
 
 const queryClient = new QueryClient();
 
