@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useQuery } from "react-query";
 
 function useGetValues() {
@@ -19,4 +20,13 @@ function useGetValues() {
   return data;
 }
 
-export { useGetValues };
+function usePokemonData(name: string) {
+  return useQuery(["pokemon", name], async () => {
+    const response = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${name}`,
+    );
+    return response.data;
+  });
+}
+
+export { useGetValues, usePokemonData };

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
-
+import { usePokemonData } from "../../hooks/queries";
 //import { styles } from "./ListPage.styles";
 
-export default function ListPage() {
+export default function ListPage(): JSX.Element {
   const [modalVisible, setModalVisible] = useState(false);
+  const data = usePokemonData("pikachu");
+
 
   const togleeModal = () => {
     setModalVisible(!modalVisible);
-    console.log("imprimio");
+    console.log("Data", data)
   };
 
 
@@ -17,6 +19,9 @@ export default function ListPage() {
     { name: "Charmander", value: "charmander" },
     { name: "Bulbasaur", value: "bulbasaur" },
   ];
+
+
+  
 
   return (
     <View style={styles.container}>
@@ -28,18 +33,16 @@ export default function ListPage() {
             key={name}>
             <Text style={styles.itemText}>{name}</Text>
           </TouchableOpacity>
-          <Modal visible={modalVisible} animationType="slide">
-            <View style={styles.modal}>
-              <Text style={styles.modalText}>Modal for Element 1</Text>
-              <TouchableOpacity
-                onPress={togleeModal}
-                style={styles.modalButton}>
-                <Text style={styles.modalButtonText}>Close Modal</Text>
-              </TouchableOpacity>
-            </View>
-          </Modal>
         </>
       ))}
+      <Modal visible={modalVisible} animationType="slide">
+        <View style={styles.modal}>
+          <Text style={styles.modalText}>Modal for Element 1</Text>
+          <TouchableOpacity onPress={togleeModal} style={styles.modalButton}>
+            <Text style={styles.modalButtonText}>Close Modal</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 }
