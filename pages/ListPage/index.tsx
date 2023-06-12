@@ -22,14 +22,12 @@ export default function ListPage(): JSX.Element {
   return (
     <View style={styles.container}>
       {pokemons.map(({ property, value }) => (
-        <>
-          <TouchableOpacity
-            onPress={() => togleeModal(value)}
-            style={styles.item}
-            key={property}>
-            <Text style={styles.itemText}>{property}</Text>
-          </TouchableOpacity>
-        </>
+        <TouchableOpacity
+          onPress={() => togleeModal(value)}
+          style={styles.item}
+          key={property}>
+          <Text style={styles.itemText}>{property}</Text>
+        </TouchableOpacity>
       ))}
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.modal}>
