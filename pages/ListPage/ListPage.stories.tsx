@@ -5,7 +5,7 @@ import ListPage from "./index";
 import { queryClient } from "../../shared/config";
 
 export default {
-  title: "ListPage",
+  title: "Design System/Pages/ListPage",
   component: ListPage,
 } as ComponentMeta<typeof ListPage>;
 

@@ -11,9 +11,11 @@ export const styles = StyleSheet.create({
     backgroundColor: "#047a27",
     padding: 12,
     borderRadius: 10,
+    width: 150,
   },
   textButton: {
     color: "white",
     fontWeight: "600",
+    textAlign: "center",
   },
 });

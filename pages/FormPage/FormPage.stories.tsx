@@ -1,7 +1,7 @@
 import FormPage from "./index";
 
 export default {
-  title: "FormPage",
+  title: "Design System/Pages/FormPage",
   component: FormPage,
 };
 

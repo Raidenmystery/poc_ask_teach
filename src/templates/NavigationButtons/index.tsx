@@ -38,13 +38,13 @@ export default function NavigationButtons({
       <TouchableHighlight
         style={styles.buttonStyles}
         activeOpacity={0.6}
-        onPress={() => navigation.navigate(labels?.[0])}>
+        onPress={() => navigation?.navigate(labels?.[0])}>
         <Text style={styles.textButton}>{`Go to ${labels?.[0]}`}</Text>
       </TouchableHighlight>
       <TouchableHighlight
         style={styles.buttonStyles}
         activeOpacity={0.6}
-        onPress={() => navigation.navigate(labels?.[1])}>
+        onPress={() => navigation?.navigate(labels?.[1])}>
         <Text style={styles.textButton}>{`Go to ${labels?.[1]}`}</Text>
       </TouchableHighlight>
     </View>
