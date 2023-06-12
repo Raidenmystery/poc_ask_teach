@@ -23,7 +23,7 @@ function useGetValues() {
 function usePokemonData(name: string) {
   return useQuery(["pokemon", name], async () => {
     const response = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${name}`,
+      `https://pokeapi.co/api/v2/pokemon/${name}`
     );
     return response.data;
   });

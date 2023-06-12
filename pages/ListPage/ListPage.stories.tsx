@@ -1,7 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react-native'
-import { QueryClientProvider } from 'react-query';
-import { queryClient } from '../../shared/config';
-import ListPage from './index';
+import { ComponentStory, ComponentMeta } from "@storybook/react-native";
+import { QueryClientProvider } from "react-query";
+
+import ListPage from "./index";
+import { queryClient } from "../../shared/config";
 
 export default {
   title: "ListPage",

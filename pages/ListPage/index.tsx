@@ -31,7 +31,9 @@ export default function ListPage(): JSX.Element {
       ))}
       <Modal visible={modalVisible} animationType="slide">
         <View style={styles.modal}>
-          <Text style={styles.modalText}>Base experience: {pokemons[0].value}</Text>
+          <Text style={styles.modalText}>
+            Base experience: {pokemons[0].value}
+          </Text>
           <Text style={styles.modalText}>Base height: {pokemons[1].value}</Text>
           <Text style={styles.modalText}>Order: {pokemons[2].value}</Text>
           <TouchableOpacity
